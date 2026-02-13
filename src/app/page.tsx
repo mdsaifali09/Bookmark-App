@@ -13,14 +13,24 @@ export default function Home() {
     })
   }, [])
 
+  // const login = async () => {
+  //   await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //     options: {
+  //       redirectTo: 'http://localhost:3000/dashboard'
+  //     }
+  //   })
+  // }
+
   const login = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: 'http://localhost:3000/dashboard'
-      }
-    })
-  }
+  await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/dashboard`
+    }
+  })
+}
+
 
   return (
   <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4">
